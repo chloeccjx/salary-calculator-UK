@@ -8,7 +8,8 @@ import base64
 
 # --- background part ---
 def add_bg_from_local(image_file):
-    with open(image_file, "rb") as file:
+    file_path = os.path.join(os.path.dirname(__file__), image_file)
+    with open(file_path, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
     st.markdown(
         f"""
