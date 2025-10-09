@@ -24,9 +24,9 @@ def add_bg_from_local(image_file):
         unsafe_allow_html=True
     )
 
-add_bg_from_local("downloads/bg4.png") 
+add_bg_from_local("bg4.png") 
 
-st.image("downloads/hb_logo.png", width=250)
+st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
 salary_data = {
