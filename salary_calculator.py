@@ -1,6 +1,6 @@
 # salary_calculator.py
 import streamlit as st
-
+import os
 st.set_page_config(page_title="Network Engineer Salary Calculator", layout="centered")
 
 from PIL import Image
