@@ -151,9 +151,11 @@ st.markdown("""
 <style>
 .scroll-buttons {
     display: flex;
+    justify-content: center;
+    align-items: center;
     overflow-x: auto;
-    gap: 10px;
-    padding: 10px 0;
+    gap: 12px;
+    padding: 15px 0;
     scrollbar-width: thin;
 }
 .scroll-buttons::-webkit-scrollbar {
@@ -164,24 +166,38 @@ st.markdown("""
     border-radius: 4px;
 }
 .scroll-buttons a {
-    background-color: #f8f8f8;
+    background-color: rgba(255, 255, 255, 0.8);
     color: black;
-    padding: 10px 16px;
-    border-radius: 10px;
+    padding: 10px 18px;
+    border-radius: 30px;
     text-decoration: none;
+    font-weight: 500;
     white-space: nowrap;
-    transition: 0.3s;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
 }
 .scroll-buttons a:hover {
-    background-color: #e3e3e3;
+    background-color: #f2f2f2;
+    transform: translateY(-2px);
+}
+.scroll-buttons a.main-btn {
+    background-color: #E63946;
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+.scroll-buttons a.main-btn:hover {
+    background-color: #d62828;
+    transform: translateY(-3px);
 }
 </style>
 
 <div class="scroll-buttons">
-    <a href="https://www.hamilton-barnes.com/">Home</a>
-    <a href="https://www.hamilton-barnes.com/clients/">Clients</a>
-    <a href="https://www.hamilton-barnes.com/candidates/">Candidates</a>
-    <a href="https://www.hamilton-barnes.com/contact/">Contact</a>
-    <a href="https://www.hamilton-barnes.com/candidates/job-search/?">Explore roles</a>
+    <a href="https://www.hamilton-barnes.com/" target="_blank">Home</a>
+    <a href="https://www.hamilton-barnes.com/clients/" target="_blank">Clients</a>
+    <a href="https://www.hamilton-barnes.com/candidates/" target="_blank">Candidates</a>
+    <a href="https://www.hamilton-barnes.com/contact/" target="_blank">Contact</a>
+    <a href="https://www.hamilton-barnes.com/candidates/job-search/?" target="_blank" class="main-btn">Explore more roles</a>
 </div>
 """, unsafe_allow_html=True)
+
