@@ -152,7 +152,7 @@ st.markdown(
     """
     <div style='text-align: center; margin-top: 20px;'>
         <a href='https://www.hamilton-barnes.com/' target='_blank'>
-            <button style='background-color:#FF4B4B; color:white; border:none; padding:10px 25px; border-radius:10px; font-size:16px; cursor:pointer;'>
+            <button style='background-color: color:white; border:none; padding:10px 25px; border-radius:10px; font-size:16px; cursor:pointer;'>
                 ⬅️ Return to Hamilton Barnes Homepage
             </button>
         </a>
