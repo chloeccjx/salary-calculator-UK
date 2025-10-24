@@ -143,7 +143,6 @@ if show:
     
     st.info("This is an estimate based on market ranges. Actual offers vary by skills, certifications and company.")
 
-st.markdown("[Explore relevant roles →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
 # --- Button Carousels (CTA) ---
