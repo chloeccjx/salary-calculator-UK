@@ -146,17 +146,42 @@ if show:
 st.markdown("[Explore relevant roles →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
-# --- Redirect Button to Main Site ---
-st.write("")
-st.markdown(
-    """
-    <div style='text-align: center; margin-top: 20px;'>
-        <a href='https://www.hamilton-barnes.com/' target='_blank'>
-            <button style='background-color: color:white; border:none; padding:10px 25px; border-radius:10px; font-size:16px; cursor:pointer;'>
-                ⬅️ Return to Hamilton Barnes Homepage
-            </button>
-        </a>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# --- Button Carousels (CTA) ---
+st.markdown("""
+<style>
+.scroll-buttons {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    scrollbar-width: thin;
+}
+.scroll-buttons::-webkit-scrollbar {
+    height: 6px;
+}
+.scroll-buttons::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+.scroll-buttons a {
+    background-color: #f8f8f8;
+    color: black;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+.scroll-buttons a:hover {
+    background-color: #e3e3e3;
+}
+</style>
+
+<div class="scroll-buttons">
+    <a href="https://www.hamilton-barnes.com/">Home</a>
+    <a href="https://www.hamilton-barnes.com/clients/">Clients</a>
+    <a href="https://www.hamilton-barnes.com/candidates/">Candidates</a>
+    <a href="https://www.hamilton-barnes.com/contact/">Contact</a>
+    <a href="https://www.hamilton-barnes.com/candidates/job-search/?">Explore roles</a>
+</div>
+""", unsafe_allow_html=True)
