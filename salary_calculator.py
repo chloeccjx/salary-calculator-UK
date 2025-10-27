@@ -166,13 +166,14 @@ def get_base64_image(image_file):
     return f"data:image/png;base64,{data}"
 
 # --- Carousel section (streamlit-friendly) ---
-import streamlit as st
 from PIL import Image
+import streamlit as st
+import os
 
 def image_carousel():
-    st.markdown("### Explore More 👇🏽")
-    
+    st.markdown("### Explore More")
     cols = st.columns(5, gap="medium")
+
     images = [
         ("homepage1.png", "https://www.hamilton-barnes.com/", "Home"),
         ("roles2.png", "https://www.hamilton-barnes.com/jobs", "Explore Roles"),
@@ -183,7 +184,23 @@ def image_carousel():
 
     for col, (img_path, link, label) in zip(cols, images):
         with col:
-            img = Image.open(img_path)
-            st.image(img, use_column_width=True)
-            st.markdown(f"<p style='text-align:center; color:black;'><a href='{link}' target='_blank'>{label}</a></p>", unsafe_allow_html=True)
+            file_path = os.path.join(os.path.dirname(__file__), img_path)
+            try:
+                img = Image.open(file_path)
+                st.image(img, use_container_width=True)          # <-- updated param
+            except FileNotFoundError:
+                st.write("Image missing")
+            # CTA under the image
+            st.markdown(
+                f"""
+                <div style="text-align:center; margin-top:6px;">
+                    <a href="{link}" target="_blank" style="text-decoration:none; color:inherit;">
+                        <strong>{label}</strong>
+                    </a>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+# call it where you want it to appear
 image_carousel()
