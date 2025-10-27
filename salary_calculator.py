@@ -166,55 +166,40 @@ def get_base64_image(image_file):
         data = base64.b64encode(f.read()).decode()
     return f"data:image/png;base64,{data}"
 
-# --- Interactive Carousel with Clickable Slides ---
+# --- Interactive Carousel for Streamlit Cloud ---
 import streamlit as st
-from streamlit_carousel import carousel
+from PIL import Image
 import os
-
-# Define your slides
-slides = [
-    {
-        "title": "Home",
-        "text": "",
-        "img": os.path.join(os.path.dirname(__file__), "homepage1.png"),
-        "link": "https://www.hamilton-barnes.com/"
-    },
-    {
-        "title": "Explore Roles",
-        "text": "",
-        "img": os.path.join(os.path.dirname(__file__), "roles2.png"),
-        "link": "https://www.hamilton-barnes.com/jobs"
-    },
-    {
-        "title": "Candidates",
-        "text": "",
-        "img": os.path.join(os.path.dirname(__file__), "candidates3.png"),
-        "link": "https://www.hamilton-barnes.com/candidates"
-    },
-    {
-        "title": "Clients",
-        "text": "",
-        "img": os.path.join(os.path.dirname(__file__), "clients4.png"),
-        "link": "https://www.hamilton-barnes.com/clients"
-    },
-    {
-        "title": "Graduates",
-        "text": "",
-        "img": os.path.join(os.path.dirname(__file__), "graduates5.png"),
-        "link": "https://www.empowering-future-network-engineers.com/"
-    }
-]
+from streamlit_carousel import carousel
 
 st.markdown("### Explore More")
 
-# Render the carousel
-selected_index = carousel(slides, height=300)  # returns index of current slide
+# Define slides (carousel only supports title, text, img)
+slides = [
+    {"title": "Home", "text": "", "img": os.path.join(os.path.dirname(__file__), "homepage1.png")},
+    {"title": "Explore Roles", "text": "", "img": os.path.join(os.path.dirname(__file__), "roles2.png")},
+    {"title": "Candidates", "text": "", "img": os.path.join(os.path.dirname(__file__), "candidates3.png")},
+    {"title": "Clients", "text": "", "img": os.path.join(os.path.dirname(__file__), "clients4.png")},
+    {"title": "Graduates", "text": "", "img": os.path.join(os.path.dirname(__file__), "graduates5.png")}
+]
 
-# Make the slide clickable
+# Show the carousel
+selected_index = carousel(slides, height=300)
+
+# Make slide clickable via link below carousel
 if selected_index is not None:
-    link = slides[selected_index]["link"]
+    links = [
+        "https://www.hamilton-barnes.com/",
+        "https://www.hamilton-barnes.com/jobs",
+        "https://www.hamilton-barnes.com/candidates",
+        "https://www.hamilton-barnes.com/clients",
+        "https://www.empowering-future-network-engineers.com/"
+    ]
     st.markdown(
-        f'<a href="{link}" target="_blank" style="text-decoration:none;">Click here to open slide</a>',
+        f'<div style="text-align:center; margin-top:6px;">'
+        f'<a href="{links[selected_index]}" target="_blank" style="text-decoration:none; font-weight:bold;">'
+        f'Go to {slides[selected_index]["title"]}'
+        f'</a></div>',
         unsafe_allow_html=True
     )
 
