@@ -149,8 +149,8 @@ st.caption("Data source: internal market ranges. Use for guidance only.")
 # --- Button Carousels (CTA) ---
 def get_base64_image(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
-    with open(file_path, "rb") as f:
-        encoded = base64.b64encode(f.read()).decode()
+    with open(file_path, "rb") as file:
+        encoded = base64.b64encode(file.read()).decode()
     return f"data:image/png;base64,{encoded}"
 
 def image_carousel():
@@ -164,8 +164,13 @@ def image_carousel():
             justify-content: center;
             padding: 20px;
         }
-        .carousel::-webkit-scrollbar { display: none; }
-        .carousel-item { flex: 0 0 auto; text-align: center; }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            flex: 0 0 auto;
+            text-align: center;
+        }
         .carousel-item img {
             width: 150px;
             height: auto;
@@ -173,12 +178,15 @@ def image_carousel():
             cursor: pointer;
             transition: transform 0.2s ease-in-out;
         }
-        .carousel-item img:hover { transform: scale(1.1); }
+        .carousel-item img:hover {
+            transform: scale(1.1);
+        }
         </style>
         """,
         unsafe_allow_html=True
     )
 
+    # all your images here
     images = {
         "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
         "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
@@ -187,21 +195,20 @@ def image_carousel():
         "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
     }
 
-st.markdown('<div class="carousel">', unsafe_allow_html=True)
-
-for label, (image_file, link) in images.items():
-    img_src = get_base64_image(image_file)
-    st.markdown(
-        f"""
+    html = '<div class="carousel">'
+    for label, (image_file, link) in images.items():
+        img_src = get_base64_image(image_file)
+        html += f"""
         <div class="carousel-item">
             <a href="{link}" target="_blank">
-                <img src="{img_src}" alt="{label}" style="width:150px;height:auto;border-radius:15px;cursor:pointer;transition:transform 0.2s ease-in-out;">
+                <img src="{img_src}" alt="{label}">
             </a>
-            <p style="font-size: 14px; color: white; text-align:center;">{label}</p>
+            <p style="font-size: 14px; color: white;">{label}</p>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+        """
+    html += "</div>"
 
+    st.markdown(html, unsafe_allow_html=True)
 
+# now call it
 image_carousel()
