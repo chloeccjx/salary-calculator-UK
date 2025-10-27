@@ -189,17 +189,17 @@ def image_carousel():
 
     html = '<div class="carousel">'
     for label, (image_file, link) in images.items():
-        img_src = get_base64_image(image_file)
-        html += f"""
+    img_src = get_base64_image(image_file)
+    st.markdown(
+        f"""
         <div class="carousel-item">
             <a href="{link}" target="_blank">
-                <img src="{img_src}" alt="{label}">
+                <img src="{img_src}" alt="{label}" style="width:150px;height:auto;border-radius:15px;cursor:pointer;transition:transform 0.2s ease-in-out;">
             </a>
-            <p style="font-size: 14px; color: white;">{label}</p>
+            <p style="font-size: 14px; color: white; text-align:center;">{label}</p>
         </div>
-        """
-    html += '</div>'
-
-    st.markdown(html, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )
 
 image_carousel()
