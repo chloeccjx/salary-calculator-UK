@@ -187,8 +187,9 @@ def image_carousel():
         "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
     }
 
-    html = '<div class="carousel">'
-    for label, (image_file, link) in images.items():
+st.markdown('<div class="carousel">', unsafe_allow_html=True)
+
+for label, (image_file, link) in images.items():
     img_src = get_base64_image(image_file)
     st.markdown(
         f"""
@@ -201,5 +202,6 @@ def image_carousel():
         """,
         unsafe_allow_html=True
     )
+
 
 image_carousel()
