@@ -166,69 +166,24 @@ def get_base64_image(image_file):
     return f"data:image/png;base64,{data}"
 
 # --- Carousel section (streamlit-friendly) ---
+import streamlit as st
+from PIL import Image
+
 def image_carousel():
-    st.markdown(
-        """
-        <style>
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 25px;
-            padding: 30px 10px;
-            justify-content: center;
-            scrollbar-width: none;
-        }
-        .carousel-container::-webkit-scrollbar {
-            display: none;
-        }
-        .carousel-item {
-            flex: 0 0 auto;
-            text-align: center;
-            transition: transform 0.2s ease-in-out;
-        }
-        .carousel-item:hover {
-            transform: scale(1.05);
-        }
-        .carousel-item img {
-            width: 150px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
-        }
-        .carousel-label {
-            margin-top: 8px;
-            font-size: 14px;
-            color: #ffffff; /* change this if your bg is light */
-            font-weight: 500;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    st.markdown("### Explore More 👇🏽")
+    
+    cols = st.columns(5, gap="medium")
+    images = [
+        ("homepage1.png", "https://www.hamilton-barnes.com/", "Home"),
+        ("roles2.png", "https://www.hamilton-barnes.com/jobs", "Explore Roles"),
+        ("candidates3.png", "https://www.hamilton-barnes.com/candidates", "Candidates"),
+        ("clients4.png", "https://www.hamilton-barnes.com/clients", "Clients"),
+        ("graduates5.png", "https://www.empowering-future-network-engineers.com/", "Graduates")
+    ]
 
-    # 🖼️ images + links
-    images = {
-        "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
-        "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
-        "Candidates": ("candidates3.png", "https://www.hamilton-barnes.com/candidates"),
-        "Clients": ("clients4.png", "https://www.hamilton-barnes.com/clients"),
-        "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/"),
-    }
-
-    html = '<div class="carousel-container">'
-    for label, (image_file, link) in images.items():
-        img_src = get_base64_image(image_file)
-        html += f"""
-        <div class="carousel-item">
-            <a href="{link}" target="_blank">
-                <img src="{img_src}" alt="{label}">
-            </a>
-            <div class="carousel-label">{label}</div>
-        </div>
-        """
-    html += "</div>"
-
-    st.markdown(html, unsafe_allow_html=True)
-
-# --- render it ---
+    for col, (img_path, link, label) in zip(cols, images):
+        with col:
+            img = Image.open(img_path)
+            st.image(img, use_column_width=True)
+            st.markdown(f"<p style='text-align:center; color:black;'><a href='{link}' target='_blank'>{label}</a></p>", unsafe_allow_html=True)
 image_carousel()
