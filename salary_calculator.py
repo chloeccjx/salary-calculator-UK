@@ -165,42 +165,55 @@ def get_base64_image(image_file):
         data = base64.b64encode(f.read()).decode()
     return f"data:image/png;base64,{data}"
 
-# --- Carousel section (streamlit-friendly) ---
-from PIL import Image
+# --- Interactive Carousel with Clickable Slides ---
 import streamlit as st
+from streamlit_carousel import carousel
 import os
 
-def image_carousel():
-    st.markdown("### Explore More")
-    cols = st.columns(5, gap="medium")
+# Define your slides
+slides = [
+    {
+        "title": "Home",
+        "text": "",
+        "img": os.path.join(os.path.dirname(__file__), "homepage1.png"),
+        "link": "https://www.hamilton-barnes.com/"
+    },
+    {
+        "title": "Explore Roles",
+        "text": "",
+        "img": os.path.join(os.path.dirname(__file__), "roles2.png"),
+        "link": "https://www.hamilton-barnes.com/jobs"
+    },
+    {
+        "title": "Candidates",
+        "text": "",
+        "img": os.path.join(os.path.dirname(__file__), "candidates3.png"),
+        "link": "https://www.hamilton-barnes.com/candidates"
+    },
+    {
+        "title": "Clients",
+        "text": "",
+        "img": os.path.join(os.path.dirname(__file__), "clients4.png"),
+        "link": "https://www.hamilton-barnes.com/clients"
+    },
+    {
+        "title": "Graduates",
+        "text": "",
+        "img": os.path.join(os.path.dirname(__file__), "graduates5.png"),
+        "link": "https://www.empowering-future-network-engineers.com/"
+    }
+]
 
-    images = [
-        ("homepage1.png", "https://www.hamilton-barnes.com/", "Home"),
-        ("roles2.png", "https://www.hamilton-barnes.com/jobs", "Explore Roles"),
-        ("candidates3.png", "https://www.hamilton-barnes.com/candidates", "Candidates"),
-        ("clients4.png", "https://www.hamilton-barnes.com/clients", "Clients"),
-        ("graduates5.png", "https://www.empowering-future-network-engineers.com/", "Graduates")
-    ]
+st.markdown("### Explore More")
 
-    for col, (img_path, link, label) in zip(cols, images):
-        with col:
-            file_path = os.path.join(os.path.dirname(__file__), img_path)
-            try:
-                img = Image.open(file_path)
-                st.image(img, use_container_width=True)          # <-- updated param
-            except FileNotFoundError:
-                st.write("Image missing")
-            # CTA under the image
-            st.markdown(
-                f"""
-                <div style="text-align:center; margin-top:6px;">
-                    <a href="{link}" target="_blank" style="text-decoration:none; color:inherit;">
-                        <strong>{label}</strong>
-                    </a>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+# Render the carousel
+selected_index = carousel(slides, height=300)  # returns index of current slide
 
-# call it where you want it to appear
-image_carousel()
+# Make the slide clickable
+if selected_index is not None:
+    link = slides[selected_index]["link"]
+    st.markdown(
+        f'<a href="{link}" target="_blank" style="text-decoration:none;">Click here to open slide</a>',
+        unsafe_allow_html=True
+    )
+
