@@ -164,13 +164,8 @@ def image_carousel():
             justify-content: center;
             padding: 20px;
         }
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-        .carousel-item {
-            flex: 0 0 auto;
-            text-align: center;
-        }
+        .carousel::-webkit-scrollbar { display: none; }
+        .carousel-item { flex: 0 0 auto; text-align: center; }
         .carousel-item img {
             width: 150px;
             height: auto;
@@ -178,9 +173,7 @@ def image_carousel():
             cursor: pointer;
             transition: transform 0.2s ease-in-out;
         }
-        .carousel-item img:hover {
-            transform: scale(1.1);
-        }
+        .carousel-item img:hover { transform: scale(1.1); }
         </style>
         """,
         unsafe_allow_html=True
@@ -194,19 +187,19 @@ def image_carousel():
         "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
     }
 
-    st.markdown('<div class="carousel">', unsafe_allow_html=True)
+    html = '<div class="carousel">'
     for label, (image_file, link) in images.items():
         img_src = get_base64_image(image_file)
-        st.markdown(
-            f"""
-            <div class="carousel-item">
-                <a href="{link}" target="_blank">
-                    <img src="{img_src}" alt="{label}">
-                </a>
-                <p style="font-size: 14px; color: white;">{label}</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    st.markdown('</div>', unsafe_allow_html=True)
-    image_carousel()
+        html += f"""
+        <div class="carousel-item">
+            <a href="{link}" target="_blank">
+                <img src="{img_src}" alt="{label}">
+            </a>
+            <p style="font-size: 14px; color: white;">{label}</p>
+        </div>
+        """
+    html += '</div>'
+
+    st.markdown(html, unsafe_allow_html=True)
+
+image_carousel()
