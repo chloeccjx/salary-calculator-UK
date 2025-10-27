@@ -11,7 +11,6 @@ def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
     with open(file_path, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
-    return f"data:image/png;base64,{encoded}"
 
     st.markdown(
         f"""
@@ -27,7 +26,7 @@ def add_bg_from_local(image_file):
         unsafe_allow_html=True
     )
 
-add_bg_from_local("bg4.png") 
+add_bg_from_local("bg4.png")
 
 st.image("hb_logo.png", width=250)
 
@@ -148,6 +147,12 @@ if show:
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
 # --- Button Carousels (CTA) ---
+def get_base64_image(image_file):
+    file_path = os.path.join(os.path.dirname(__file__), image_file)
+    with open(file_path, "rb") as f:
+        encoded = base64.b64encode(f.read()).decode()
+    return f"data:image/png;base64,{encoded}"
+    
 def image_carousel():
     st.markdown(
         """
@@ -186,7 +191,7 @@ def image_carousel():
         "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
         "Candidates": ("candidates3.png", "https://www.hamilton-barnes.com/candidates"),
         "Clients": ("clients4.png", "https://www.hamilton-barnes.com/clients"),
-        "graduates5": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
+        "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
     }
 
     st.markdown('<div class="carousel">', unsafe_allow_html=True)
@@ -204,5 +209,3 @@ def image_carousel():
             unsafe_allow_html=True
         )
     st.markdown('</div>', unsafe_allow_html=True)
-
-
