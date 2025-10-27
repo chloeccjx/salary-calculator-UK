@@ -146,13 +146,12 @@ if show:
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
-# --- Button Carousels (CTA) ---
 def get_base64_image(image_file):
-    file_path = os.path.join(os.path.dirname(__file__), image_file)
-    with open(file_path, "rb") as file:
-        encoded = base64.b64encode(file.read()).decode()
-    return f"data:image/png;base64,{encoded}"
+    with open(image_file, "rb") as f:
+        data = f.read()
+    return "data:image/png;base64," + base64.b64encode(data).decode()
 
+# --- Button Carousel (CTA) ---
 def image_carousel():
     st.markdown(
         """
@@ -186,7 +185,7 @@ def image_carousel():
         unsafe_allow_html=True
     )
 
-    # all the images 
+    # define images *inside* the function
     images = {
         "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
         "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
@@ -195,19 +194,22 @@ def image_carousel():
         "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
     }
 
-html = '<div class="carousel">'
-for label, (image_file, link) in images.items():
-    img_src = get_base64_image(image_file)
-    html += f"""
-    <div class="carousel-item">
-        <a href="{link}" target="_blank">
-            <img src="{img_src}" alt="{label}">
-        </a>
-        <p style="font-size: 14px; color: white;">{label}</p>
-    </div>
-    """
-html += "</div>"
+    # HTML string
+    html = '<div class="carousel">'
+    for label, (image_file, link) in images.items():
+        img_src = get_base64_image(image_file)
+        html += f"""
+        <div class="carousel-item">
+            <a href="{link}" target="_blank">
+                <img src="{img_src}" alt="{label}">
+            </a>
+            <p style="font-size: 14px; color: white;">{label}</p>
+        </div>
+        """
+    html += "</div>"
 
-st.markdown(html, unsafe_allow_html=True)
+    st.markdown(html, unsafe_allow_html=True)
 
+
+# --- call the function ---
 image_carousel()
