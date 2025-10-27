@@ -28,6 +28,14 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local("bg4.png")
 
+# --- helper function for images ---
+def get_base64_image(image_file):
+    import base64, os
+    file_path = os.path.join(os.path.dirname(__file__), image_file)
+    with open(file_path, "rb") as f:
+        data = f.read()
+    return "data:image/png;base64," + base64.b64encode(data).decode()
+    
 st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
@@ -145,11 +153,6 @@ if show:
     st.info("This is an estimate based on market ranges. Actual offers vary by skills, certifications and company.")
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
-
-def get_base64_image(image_file):
-    with open(image_file, "rb") as f:
-        data = f.read()
-    return "data:image/png;base64," + base64.b64encode(data).decode()
 
 # --- Button Carousel (CTA) ---
 def image_carousel():
