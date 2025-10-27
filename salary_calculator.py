@@ -154,6 +154,10 @@ if show:
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
+import streamlit as st
+import base64
+import os
+
 # --- Helper function to convert local image to base64 ---
 def get_base64_image(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
@@ -161,41 +165,48 @@ def get_base64_image(image_file):
         data = base64.b64encode(f.read()).decode()
     return f"data:image/png;base64,{data}"
 
-# --- Carousel section ---
+# --- Carousel section (streamlit-friendly) ---
 def image_carousel():
     st.markdown(
         """
         <style>
-        .carousel {
+        .carousel-container {
             display: flex;
             overflow-x: auto;
-            gap: 20px;
+            gap: 25px;
+            padding: 30px 10px;
             justify-content: center;
-            padding: 20px;
+            scrollbar-width: none;
         }
-        .carousel::-webkit-scrollbar {
+        .carousel-container::-webkit-scrollbar {
             display: none;
         }
         .carousel-item {
             flex: 0 0 auto;
             text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .carousel-item:hover {
+            transform: scale(1.05);
         }
         .carousel-item img {
             width: 150px;
             height: auto;
             border-radius: 15px;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
         }
-        .carousel-item img:hover {
-            transform: scale(1.1);
+        .carousel-label {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #ffffff; /* change this if your bg is light */
+            font-weight: 500;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # 🖼️ define the images and links here
+    # 🖼️ images + links
     images = {
         "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
         "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
@@ -204,8 +215,7 @@ def image_carousel():
         "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/"),
     }
 
-    # 🧩 build the HTML carousel
-    html = '<div class="carousel">'
+    html = '<div class="carousel-container">'
     for label, (image_file, link) in images.items():
         img_src = get_base64_image(image_file)
         html += f"""
@@ -213,12 +223,12 @@ def image_carousel():
             <a href="{link}" target="_blank">
                 <img src="{img_src}" alt="{label}">
             </a>
-            <p style="font-size: 14px; color: white;">{label}</p>
+            <div class="carousel-label">{label}</div>
         </div>
         """
     html += "</div>"
 
     st.markdown(html, unsafe_allow_html=True)
 
-# --- actually render the carousel at the end ---
+# --- render it ---
 image_carousel()
