@@ -155,8 +155,9 @@ if show:
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
 import streamlit as st
-import base64
+from PIL import Image
 import os
+from streamlit_carousel import carousel 
 
 # --- Helper function to convert local image to base64 ---
 def get_base64_image(image_file):
