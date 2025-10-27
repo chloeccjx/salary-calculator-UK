@@ -154,27 +154,16 @@ if show:
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
-import streamlit as st
-from PIL import Image
-import os
-from streamlit_carousel import carousel 
-
-# --- Helper function to convert local image to base64 ---
-def get_base64_image(image_file):
-    file_path = os.path.join(os.path.dirname(__file__), image_file)
-    with open(file_path, "rb") as f:
-        data = base64.b64encode(f.read()).decode()
-    return f"data:image/png;base64,{data}"
-
-# --- Interactive Carousel for Streamlit Cloud ---
+# --- Streamlit Carousel for Cloud ---
 import streamlit as st
 from PIL import Image
 import os
 from streamlit_carousel import carousel
 
-st.markdown("### Explore More")
+st.title("Explore More")
 
-# Define slides (carousel only supports title, text, img)
+# --- Define slides ---
+# Only title, text, and img keys are supported
 slides = [
     {"title": "Home", "text": "", "img": os.path.join(os.path.dirname(__file__), "homepage1.png")},
     {"title": "Explore Roles", "text": "", "img": os.path.join(os.path.dirname(__file__), "roles2.png")},
@@ -183,10 +172,10 @@ slides = [
     {"title": "Graduates", "text": "", "img": os.path.join(os.path.dirname(__file__), "graduates5.png")}
 ]
 
-# Show the carousel
+# --- Show carousel ---
 selected_index = carousel(slides, height=300)
 
-# Make slide clickable via link below carousel
+# --- Show clickable link for current slide ---
 if selected_index is not None:
     links = [
         "https://www.hamilton-barnes.com/",
@@ -195,11 +184,12 @@ if selected_index is not None:
         "https://www.hamilton-barnes.com/clients",
         "https://www.empowering-future-network-engineers.com/"
     ]
+    
     st.markdown(
-        f'<div style="text-align:center; margin-top:6px;">'
-        f'<a href="{links[selected_index]}" target="_blank" style="text-decoration:none; font-weight:bold;">'
+        f'<div style="text-align:center; margin-top:10px;">'
+        f'<a href="{links[selected_index]}" target="_blank" '
+        f'style="text-decoration:none; font-weight:bold; font-size:16px;">'
         f'Go to {slides[selected_index]["title"]}'
         f'</a></div>',
         unsafe_allow_html=True
     )
-
