@@ -11,6 +11,8 @@ def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
     with open(file_path, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
+    return f"data:image/png;base64,{encoded}"
+
     st.markdown(
         f"""
         <style>
@@ -146,57 +148,61 @@ if show:
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
 # --- Button Carousels (CTA) ---
-st.markdown("""
-<style>
-.scroll-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: auto;
-    gap: 12px;
-    padding: 15px 0;
-    scrollbar-width: thin;
-}
-.scroll-buttons::-webkit-scrollbar {
-    height: 6px;
-}
-.scroll-buttons::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 4px;
-}
-.scroll-buttons a {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    padding: 10px 18px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap;
-    border: 1px solid #ddd;
-    transition: all 0.3s ease;
-}
-.scroll-buttons a:hover {
-    background-color: #f2f2f2;
-    transform: translateY(-2px);
-}
-.scroll-buttons a.main-btn {
-    background-color: #E63946;
-    color: white;
-    font-weight: 600;
-    border: none;
-}
-.scroll-buttons a.main-btn:hover {
-    background-color: #d62828;
-    transform: translateY(-3px);
-}
-</style>
+def image_carousel():
+    st.markdown(
+        """
+        <style>
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            flex: 0 0 auto;
+            text-align: center;
+        }
+        .carousel-item img {
+            width: 150px;
+            height: auto;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .carousel-item img:hover {
+            transform: scale(1.1);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-<div class="scroll-buttons">
-    <a href="https://www.hamilton-barnes.com/" target="_blank">Home</a>
-    <a href="https://www.hamilton-barnes.com/clients/" target="_blank">Clients</a>
-    <a href="https://www.hamilton-barnes.com/candidates/" target="_blank">Candidates</a>
-    <a href="https://www.hamilton-barnes.com/contact/" target="_blank">Contact</a>
-    <a href="https://www.hamilton-barnes.com/candidates/job-search/?" target="_blank" class="main-btn">Explore more roles</a>
-</div>
-""", unsafe_allow_html=True)
+    images = {
+        "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
+        "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
+        "Candidates": ("candidates3.png", "https://www.hamilton-barnes.com/candidates"),
+        "Clients": ("clients4.png", "https://www.hamilton-barnes.com/clients"),
+        "graduates5": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
+    }
+
+    st.markdown('<div class="carousel">', unsafe_allow_html=True)
+    for label, (image_file, link) in images.items():
+        img_src = get_base64_image(image_file)
+        st.markdown(
+            f"""
+            <div class="carousel-item">
+                <a href="{link}" target="_blank">
+                    <img src="{img_src}" alt="{label}">
+                </a>
+                <p style="font-size: 14px; color: white;">{label}</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    st.markdown('</div>', unsafe_allow_html=True)
+
 
