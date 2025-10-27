@@ -35,7 +35,7 @@ def get_base64_image(image_file):
     with open(file_path, "rb") as f:
         data = f.read()
     return "data:image/png;base64," + base64.b64encode(data).decode()
-    
+
 st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
@@ -154,7 +154,14 @@ if show:
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
-# --- Button Carousel (CTA) ---
+# --- Helper function to convert local image to base64 ---
+def get_base64_image(image_file):
+    file_path = os.path.join(os.path.dirname(__file__), image_file)
+    with open(file_path, "rb") as f:
+        data = base64.b64encode(f.read()).decode()
+    return f"data:image/png;base64,{data}"
+
+# --- Carousel section ---
 def image_carousel():
     st.markdown(
         """
@@ -188,16 +195,16 @@ def image_carousel():
         unsafe_allow_html=True
     )
 
-    # define images *inside* the function
+    # 🖼️ define the images and links here
     images = {
         "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
         "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
         "Candidates": ("candidates3.png", "https://www.hamilton-barnes.com/candidates"),
         "Clients": ("clients4.png", "https://www.hamilton-barnes.com/clients"),
-        "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/")
+        "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/"),
     }
 
-    # HTML string
+    # 🧩 build the HTML carousel
     html = '<div class="carousel">'
     for label, (image_file, link) in images.items():
         img_src = get_base64_image(image_file)
@@ -213,6 +220,5 @@ def image_carousel():
 
     st.markdown(html, unsafe_allow_html=True)
 
-
-# --- call the function ---
+# --- actually render the carousel at the end ---
 image_carousel()
