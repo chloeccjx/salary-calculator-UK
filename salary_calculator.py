@@ -156,26 +156,27 @@ st.caption("Data source: internal market ranges. Use for guidance only.")
 
 # --- Streamlit Carousel for Cloud ---
 import streamlit as st
-from PIL import Image
-import os
 from streamlit_carousel import carousel
+import os
 
 st.title("Explore More")
 
-# --- Define slides ---
-# Only title, text, and img keys are supported
+# --- Get folder path for images ---
+img_folder = os.path.dirname(__file__)
+
+# --- Slides with local images ---
 slides = [
-    {"title": "Home", "text": "", "img": os.path.join(os.path.dirname(__file__), "homepage1.png")},
-    {"title": "Explore Roles", "text": "", "img": os.path.join(os.path.dirname(__file__), "roles2.png")},
-    {"title": "Candidates", "text": "", "img": os.path.join(os.path.dirname(__file__), "candidates3.png")},
-    {"title": "Clients", "text": "", "img": os.path.join(os.path.dirname(__file__), "clients4.png")},
-    {"title": "Graduates", "text": "", "img": os.path.join(os.path.dirname(__file__), "graduates5.png")}
+    {"title": "Home", "text": "", "image": os.path.join(img_folder, "homepage1.png")},
+    {"title": "Explore Roles", "text": "", "image": os.path.join(img_folder, "roles2.png")},
+    {"title": "Candidates", "text": "", "image": os.path.join(img_folder, "candidates3.png")},
+    {"title": "Clients", "text": "", "image": os.path.join(img_folder, "clients4.png")},
+    {"title": "Graduates", "text": "", "image": os.path.join(img_folder, "graduates5.png")}
 ]
 
 # --- Show carousel ---
 selected_index = carousel(slides, height=300)
 
-# --- Show clickable link for current slide ---
+# --- Clickable link below the slide ---
 if selected_index is not None:
     links = [
         "https://www.hamilton-barnes.com/",
