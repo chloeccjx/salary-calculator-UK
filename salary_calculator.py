@@ -152,7 +152,7 @@ def get_base64_image(image_file):
     with open(file_path, "rb") as f:
         encoded = base64.b64encode(f.read()).decode()
     return f"data:image/png;base64,{encoded}"
-    
+
 def image_carousel():
     st.markdown(
         """
@@ -209,3 +209,4 @@ def image_carousel():
             unsafe_allow_html=True
         )
     st.markdown('</div>', unsafe_allow_html=True)
+    image_carousel()
