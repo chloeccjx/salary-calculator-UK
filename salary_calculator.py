@@ -161,15 +161,6 @@ def get_base64_image(image_file):
         data = base64.b64encode(f.read()).decode()
     return f"data:image/png;base64,{data}"
 
-# --- Define images and links globally (so it's not undefined) ---
-images = {
-    "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
-    "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
-    "Candidates": ("candidates3.png", "https://www.hamilton-barnes.com/candidates"),
-    "Clients": ("clients4.png", "https://www.hamilton-barnes.com/clients"),
-    "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/"),
-}
-
 # --- Carousel section ---
 def image_carousel():
     st.markdown(
@@ -199,17 +190,21 @@ def image_carousel():
         .carousel-item img:hover {
             transform: scale(1.1);
         }
-        p {
-            font-size: 14px;
-            color: white;
-            margin-top: 8px;
-        }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # build the HTML carousel
+    # 🖼️ define the images and links here
+    images = {
+        "Home": ("homepage1.png", "https://www.hamilton-barnes.com/"),
+        "Explore More Roles": ("roles2.png", "https://www.hamilton-barnes.com/jobs"),
+        "Candidates": ("candidates3.png", "https://www.hamilton-barnes.com/candidates"),
+        "Clients": ("clients4.png", "https://www.hamilton-barnes.com/clients"),
+        "Graduates": ("graduates5.png", "https://www.empowering-future-network-engineers.com/"),
+    }
+
+    # 🧩 build the HTML carousel
     html = '<div class="carousel">'
     for label, (image_file, link) in images.items():
         img_src = get_base64_image(image_file)
@@ -218,7 +213,7 @@ def image_carousel():
             <a href="{link}" target="_blank">
                 <img src="{img_src}" alt="{label}">
             </a>
-            <p>{label}</p>
+            <p style="font-size: 14px; color: white;">{label}</p>
         </div>
         """
     html += "</div>"
