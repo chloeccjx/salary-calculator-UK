@@ -156,24 +156,25 @@ st.caption("Data source: internal market ranges. Use for guidance only.")
 
 # --- Simple Button Section ---
 st.markdown("---")
-st.title("Explore More")
 
 st.markdown("""
 <style>
 .explore-btn {
     display: inline-block;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.8); /* thinner + softer */
     color: white;
     background-color: transparent;
-    padding: 12px 24px;
-    border-radius: 12px;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 8px;
+    text-decoration: none; /* removes underline */
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
 }
 .explore-btn:hover {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     color: black;
 }
 </style>
