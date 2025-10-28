@@ -154,43 +154,42 @@ if show:
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
-# --- Streamlit Carousel for Cloud ---
-import streamlit as st
-from streamlit_carousel import carousel
-import os
-
+# --- Simple Button Section ---
+st.markdown("---")
 st.title("Explore More")
 
-# --- Get folder path for images ---
-img_folder = os.path.dirname(__file__)
+st.markdown("""
+<style>
+.explore-btn {
+    display: inline-block;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    padding: 12px 24px;
+    border-radius: 12px;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.explore-btn:hover {
+    background-color: white;
+    color: black;
+}
+</style>
+""", unsafe_allow_html=True)
 
-# --- Slides with local images ---
-slides = [
-    {"title": "Home", "text": "", "image": os.path.join(img_folder, "homepage1.png")},
-    {"title": "Explore Roles", "text": "", "image": os.path.join(img_folder, "roles2.png")},
-    {"title": "Candidates", "text": "", "image": os.path.join(img_folder, "candidates3.png")},
-    {"title": "Clients", "text": "", "image": os.path.join(img_folder, "clients4.png")},
-    {"title": "Graduates", "text": "", "image": os.path.join(img_folder, "graduates5.png")}
+buttons = [
+    ("Home", "https://www.hamilton-barnes.com/"),
+    ("Explore Roles", "https://www.hamilton-barnes.com/jobs"),
+    ("Candidates", "https://www.hamilton-barnes.com/candidates"),
+    ("Clients", "https://www.hamilton-barnes.com/clients"),
+    ("Graduates", "https://www.empowering-future-network-engineers.com/")
 ]
 
-# --- Show carousel ---
-selected_index = carousel(slides, height=300)
+btn_html = '<div style="text-align:center;">'
+for label, link in buttons:
+    btn_html += f'<a href="{link}" target="_blank" class="explore-btn">{label}</a>'
+btn_html += '</div>'
 
-# --- Clickable link below the slide ---
-if selected_index is not None:
-    links = [
-        "https://www.hamilton-barnes.com/",
-        "https://www.hamilton-barnes.com/jobs",
-        "https://www.hamilton-barnes.com/candidates",
-        "https://www.hamilton-barnes.com/clients",
-        "https://www.empowering-future-network-engineers.com/"
-    ]
-    
-    st.markdown(
-        f'<div style="text-align:center; margin-top:10px;">'
-        f'<a href="{links[selected_index]}" target="_blank" '
-        f'style="text-decoration:none; font-weight:bold; font-size:16px;">'
-        f'Go to {slides[selected_index]["title"]}'
-        f'</a></div>',
-        unsafe_allow_html=True
-    )
+st.markdown(btn_html, unsafe_allow_html=True)
