@@ -482,10 +482,7 @@ locations = ["London", "Manchester", "Birmingham", "Remote"]
 levels = ["Junior", "Intermediate", "Senior", "Managerial"]
 
 # --- UI ---
-st.title(
-    "<h3 style='text-align: center; font-size: 26px;'>Explore salary ranges across the UK</h3>",
-    unsafe_allow_html=True
-)
+st.title("Discover salary benchmarks across the UK tech industry")
 st.write("---")
 st.write("Select role, location and experience level to see an estimated salary range. This is for guidance only.")
 
