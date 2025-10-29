@@ -102,14 +102,14 @@ salary_data = {
     },
     "Radio Frequency (RF) Engineer": {
         "London": (45000, 70000),
-        "Manchester": (38000, 55000)
-        "Birmingham": (36000, 53000)
-        "Remote": (40000, 65000)
+        "Manchester": (38000, 55000),
+        "Birmingham": (36000, 53000),
+        "Remote": (40000, 65000),
     }, 
     "Radio Frequency (RF) Design Engineer": {
         "London": (48000, 75000),
-        "Manchester": (40000, 60000)
-        "Birmingham": (38000, 58000)
+        "Manchester": (40000, 60000),
+        "Birmingham": (38000, 58000),
         "Remote": (43000, 70000)
     }, 
     "Radio Frequency (RF) Test Engineer": {
