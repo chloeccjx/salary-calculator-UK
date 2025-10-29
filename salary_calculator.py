@@ -482,7 +482,7 @@ locations = ["London", "Manchester", "Birmingham", "Remote"]
 levels = ["Junior", "Intermediate", "Senior", "Managerial"]
 
 # --- UI ---
-st.title("Find out your estimated salary range in the UK Network Engineering scene!")
+st.title("Find out your estimated salary range here!")
 st.write("---")
 st.write("Select role, location and experience level to see an estimated salary range. This is for guidance only.")
 
