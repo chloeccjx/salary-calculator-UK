@@ -482,7 +482,7 @@ locations = ["London", "Manchester", "Birmingham", "Remote"]
 levels = ["Junior", "Intermediate", "Senior", "Managerial"]
 
 # --- UI ---
-st.markdown(
+st.title(
     "<h3 style='text-align: center; font-size: 26px;'>Explore salary ranges across the UK</h3>",
     unsafe_allow_html=True
 )
