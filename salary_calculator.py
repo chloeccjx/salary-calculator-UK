@@ -468,6 +468,99 @@ salary_data = {
     }
 }
 
+# dropdown options + dividers
+role_options = [
+    "--- Network Engineer ---",
+    "Network Engineer",
+    "Network Administrator",
+    "Network Analyst",
+    "Network Architect",
+    "Network Security Engineer",
+    "Network Support Engineer",
+    "Wireless Network Engineer",
+    "Network Manager",
+    "Network Operations Center Engineer",
+
+    "--- Radio Frequency ---",
+    "RF Engineer",
+    "RF Design Engineer",
+    "RF Test Engineer",
+    "RAN Engineer",
+    "Satellite Architect",
+    "DMR / PMR Engineer",
+    "Military Leaver (Signals / EWSI)",
+    
+    "--- IP and Transmission ---",
+    "Senior IP Network Engineer",
+    "Field Network Engineer",
+    "IP Operations / NetOps Engineer",
+    "SIP & Voice Engineer",
+    "Graduate Network Engineer",
+    "IP Engineer / Test / Dev Engineer",
+    "Backbone / Core Engineer",
+    "GPON Engineer",
+    "Transmission / Ethernet / DWDM Engineer",
+    
+    "--- Satellite ---",
+    "Satcom Engineer",
+    "Satellite Systems Engineer",
+    "Satellite Operations Engineer",
+    "Ground Systems Engineer",
+    "Satcom Integration Engineer",
+    "SATCOM Field Service Engineer",
+    "SATCOM Business Development Manager",
+    "SATCOM Pre-Sales Engineer",
+
+    "--- Data Centres ---",
+    "Data Centre Technician",
+    "Data Centre Engineer",
+    "Network Engineer (Data Centre)",
+    "Data Centre Operations Manager",
+    "Infrastructure Engineer (Data Centre)",
+    "Facilities Engineer (Data Centre)",
+    "Data Centre Security Analyst",
+    "DevOps Engineer (Data Centre Operations)",
+
+    "--- Broadcasting ---",
+    "Broadcast Systems Engineer",
+    "Network Broadcast Engineer",
+    "Cloud Broadcast Engineer",
+    "Streaming Media Engineer",
+    "CDN (Content Delivery Network) Engineer",
+    "Video over IP Specialist",
+    "Systems Integration Specialist",
+    "Digital Content Delivery Specialist",
+    "Distribution Engineer",
+    "Event Engineer",
+
+    "--- Support (Telecoms) ---",
+    "1st Line Support Engineer",
+    "2nd Line Support Engineer",
+    "3rd Line Support Engineer",
+
+    "--- Design ---",
+    "Network Designer",
+    "Transmission Architect",
+    "IP Network Design Engineer",
+
+    "--- Pre-Sales (IT Telecoms) ---",
+    "Sales Engineer",
+
+    "--- Cybersecurity ---",
+    "Cyber Security Engineer",
+    "Application Security Engineer",
+    "Cloud Security Engineer",
+    "Cyber Security Analyst",
+    "Digital Forensics",
+    "GRC Analyst (Governance, Risk & Compliance)",
+    "Incident Response Specialist",
+    "Information Security",
+    "OT Security",
+    "Red Team Engineer",
+    "SOC Analyst (Security Operations Centre)",
+    "Threat Intelligence Analyst"
+]
+
 # seniority percentiles: the percentile inside the range to show as an estimated salary
 seniority_percentiles = {
     "Junior": 0.25,
