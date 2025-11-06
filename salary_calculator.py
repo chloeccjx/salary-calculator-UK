@@ -451,8 +451,13 @@ salary_data = {
     },
 }
 
-if selection.startswith("────") 
-    st.warning("Oops! This is a divider. Please select a valid role.")
+# Example selectbox
+roles = list(salary_data.keys())
+selection = st.selectbox("Choose a role:", roles)
+
+# Check if it’s a divider/header
+if selection.startswith("─") or selection.startswith("---"):
+    st.warning("Oops! This is not a role. Please select a valid role.")
 
 # seniority percentiles: the percentile inside the range to show as an estimated salary
 seniority_percentiles = {
