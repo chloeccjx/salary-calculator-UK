@@ -40,6 +40,7 @@ st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
 salary_data = {
+    "--- Network Engineer ---": {},
     "Network Engineer": {
         "London": (55000, 70000),
         "Manchester": (40000, 55000),
@@ -76,25 +77,9 @@ salary_data = {
         "Birmingham": (26000, 36000),
         "Remote": (28000, 40000),
     },
+    
+    "--- Radio Frequency ---": {},
     "Wireless Network Engineer": {
-        "London": (45000, 65000),
-        "Manchester": (35000, 50000),
-        "Birmingham": (38000, 52000),
-        "Remote": (40000, 60000),
-    },
-    "Network Manager": {
-        "London": (65000, 85000),
-        "Manchester": (55000, 70000),
-        "Birmingham": (55000, 70000),
-        "Remote": (60000, 80000),
-    },
-    "Network Operations Center Engineer": {
-        "London": (35000, 45000),
-        "Manchester": (28000, 38000),
-        "Birmingham": (30000, 40000),
-        "Remote": (32000, 45000),
-    },
-    "Telecoms Network Engineer": {
         "London": (45000, 65000),
         "Manchester": (35000, 50000),
         "Birmingham": (38000, 52000),
@@ -105,461 +90,367 @@ salary_data = {
         "Manchester": (38000, 55000),
         "Birmingham": (36000, 53000),
         "Remote": (40000, 65000),
-    }, 
+    },
     "Radio Frequency (RF) Design Engineer": {
         "London": (48000, 75000),
         "Manchester": (40000, 60000),
         "Birmingham": (38000, 58000),
-        "Remote": (43000, 70000)
-    }, 
+        "Remote": (43000, 70000),
+    },
     "Radio Frequency (RF) Test Engineer": {
         "London": (40000, 60000),
         "Manchester": (34000, 50000),
         "Birmingham": (32000, 48000),
-        "Remote": (35000, 55000)
+        "Remote": (35000, 55000),
     },
     "RAN Engineer": {
         "London": (45000, 72000),
         "Manchester": (38000, 56000),
         "Birmingham": (36000, 53000),
-        "Remote": (40000, 68000)
-    },
-    "Satellite Architect": {
-        "London": (70000, 100000),
-        "Manchester": (58000, 82000),
-        "Birmingham": (55000, 78000),
-        "Remote": (62000, 95000)
+        "Remote": (40000, 68000),
     },
     "DMR / PMR Engineer": {
         "London": (45000, 60000),
         "Manchester": (40000, 55000),
         "Birmingham": (40000, 55000),
-        "Remote": (35000, 50000)
+        "Remote": (35000, 50000),
     },
     "Military Leaver (Signals / EWSI)": {
         "London": (40000, 50000),
         "Manchester": (35000, 45000),
         "Birmingham": (30000, 40000),
-        "Remote": (30000, 40000)
+        "Remote": (30000, 40000),
     },
+    
+    "--- IP and Transmission ---": {},
     "Senior IP Network Engineer": {
         "London": (65000, 85000),
         "Manchester": (55000, 80000),
         "Birmingham": (55000, 80000),
-        "Remote": (55000, 85000)
-    },
-    "Field Network Engineer": {
-        "London": (32000, 50000),
-        "Manchester": (28000, 42000),
-        "Birmingham": (26000, 40000),
-        "Remote": (28000, 48000)
+        "Remote": (55000, 85000),
     },
     "IP Operations / NetOps Engineer": {
         "London": (45000, 70000),
         "Manchester": (37000, 55000),
         "Birmingham": (34000, 52000),
-        "Remote": (40000, 65000)
-    },
-    "SIP & Voice Engineer": {
-        "London": (42000, 68000),
-        "Manchester": (35000, 54000),
-        "Birmingham": (33000, 50000),
-        "Remote": (38000, 62000)
-    },
-    "Graduate Network Engineer": {
-        "London": (28000, 36000),
-        "Manchester": (24000, 32000),
-        "Birmingham": (22000, 30000),
-        "Remote": (24000, 34000)
+        "Remote": (40000, 65000),
     },
     "IP Engineer / Test / Dev Engineer": {
         "London": (45000, 78000),
         "Manchester": (38000, 62000),
         "Birmingham": (35000, 60000),
-        "Remote": (40000, 72000)
+        "Remote": (40000, 72000),
     },
     "Backbone / Core Engineer": {
         "London": (55000, 85000),
         "Manchester": (45000, 68000),
         "Birmingham": (42000, 65000),
-        "Remote": (48000, 80000)
-    },
-    "GPON Engineer": {
-        "London": (40000, 65000),
-        "Manchester": (34000, 52000),
-        "Birmingham": (32000, 50000),
-        "Remote": (36000, 60000)
+        "Remote": (48000, 80000),
     },
     "Transmission / Ethernet / DWDM Engineer": {
         "London": (45000, 80000),
         "Manchester": (40000, 62000),
         "Birmingham": (38000, 58000),
-        "Remote": (44000, 75000)
+        "Remote": (44000, 75000),
     },
-    "Satcom Engineer": {
-        "London": (48000, 78000),
-        "Manchester": (40000, 62000),
-        "Birmingham": (38000, 60000),
-        "Remote": (42000, 70000)
-    },
-    "Satellite Systems Engineer": {
-        "London": (45000, 70000),
-        "Manchester": (38000, 55000),
-        "Birmingham": (35000, 50000),
-        "Remote": (40000, 65000)
-    },
-    "Satellite Operations Engineer": {
-        "London": (42000, 70000),
-        "Manchester": (35000, 55000),
-        "Birmingham": (33000, 52000),
-        "Remote": (38000, 62000)
-    },
-    "Ground Systems Engineer": {
-        "London": (42000, 70000),
-        "Manchester": (35000, 55000),
-        "Birmingham": (33000, 52000),
-        "Remote": (38000, 62000)
-    },
-    "Satcom Integration Engineer": {
-        "London": (50000, 90000),
-        "Manchester": (42000, 70000),
-        "Birmingham": (40000, 65000),
-        "Remote": (45000, 80000)
-    },
-    "SATCOM Field Service Engineer": {
-        "London": (45000, 75000),
-        "Manchester": (38000, 60000),
-        "Birmingham": (35000, 55000),
-        "Remote": (40000, 70000)
-    },
-    "SATCOM Business Development Manager": {
-        "London": (60000, 95000),
-        "Manchester": (48000, 75000),
-        "Birmingham": (45000, 70000),
-        "Remote": (50000, 90000)
-    },
-    "SATCOM Pre-Sales Engineer": {
-        "London": (50000, 90000),
-        "Manchester": (42000, 70000),
-        "Birmingham": (40000, 65000),
-        "Remote": (45000, 80000)
-    },
-    "Data Centre Technician": {
-        "London": (31000, 49000),
-        "Manchester": (26000, 40000),
-        "Birmingham": (25000, 38000),
-        "Remote": (28000, 45000)
-    },
-    "Data Centre Engineer": {
-        "London": (42000, 70000),
-        "Manchester": (35000, 56000),
-        "Birmingham": (33000, 52000),
-        "Remote": (38000, 65000)
-    },
-    "Network Engineer (Data Centre)": {
-        "London": (50000, 78000),
-        "Manchester": (42000, 62000),
-        "Birmingham": (40000, 60000),
-        "Remote": (45000, 75000)
-    },
-    "Data Centre Operations Manager": {
-        "London": (60000, 95000),
-        "Manchester": (48000, 75000),
-        "Birmingham": (45000, 70000),
-        "Remote": (50000, 85000)
-    },
-    "Infrastructure Engineer (Data Centre)": {
-        "London": (40000, 90000),
-        "Manchester": (34000, 70000),
-        "Birmingham": (32000, 65000),
-        "Remote": (38000, 80000)
-    },
-    "Facilities Engineer (Data Centre)": {
-        "London": (45000, 65000),
-        "Manchester": (40000, 55000),
-        "Birmingham": (40000, 55000),
-        "Remote": (30000, 60000)
-    },
-    "Data Centre Security Analyst": {
-        "London": (45000, 75000),
-        "Manchester": (38000, 60000),
-        "Birmingham": (35000, 55000),
-        "Remote": (40000, 70000)
-    },
-    "DevOps Engineer (Data Centre Operations)": {
-        "London": (50000, 85000),
-        "Manchester": (42000, 65000),
-        "Birmingham": (40000, 60000),
-        "Remote": (45000, 80000)
-    },
-    "Broadcast Systems Engineer": {
-        "London": (40000, 75000),
-        "Manchester": (32000, 56000),
-        "Birmingham": (30000, 52000),
-        "Remote": (35000, 65000)
-    },
-    "Network Broadcast Engineer": {
-        "London": (42000, 78000),
-        "Manchester": (34000, 60000),
-        "Birmingham": (32000, 58000),
-        "Remote": (38000, 68000)
-    },
-    "Cloud Broadcast Engineer": {
-        "London": (45000, 80000),
-        "Manchester": (38000, 60000),
-        "Birmingham": (35000, 58000),
-        "Remote": (40000, 72000)
-    },
-    "Streaming Media Engineer": {
-        "London": (45000, 80000),
-        "Manchester": (38000, 60000),
-        "Birmingham": (35000, 58000),
-        "Remote": (40000, 72000)
-    },
-    "CDN (Content Delivery Network) Engineer": {
-        "London": (45000, 80000),
-        "Manchester": (38000, 60000),
-        "Birmingham": (35000, 58000),
-        "Remote": (40000, 72000)
-    },
-    "Video over IP Specialist": {
-        "London": (44000, 78000),
-        "Manchester": (36000, 58000),
-        "Birmingham": (34000, 55000),
-        "Remote": (38000, 70000)
-    },
-    "Systems Integration Specialist": {
-        "London": (40000, 70000),
-        "Manchester": (34000, 55000),
-        "Birmingham": (30000, 50000),
-        "Remote": (36000, 65000)
-    },
-    "Digital Content Delivery Specialist": {
-        "London": (40000, 70000),
-        "Manchester": (34000, 55000),
-        "Birmingham": (30000, 50000),
-        "Remote": (36000, 65000)
-    },
-    "Distribution Engineer": {
-        "London": (45000, 65000),
-        "Manchester": (40000, 58000),
-        "Birmingham": (40000, 55000),
-        "Remote": (38000, 70000)
-    },
-    "Event Engineer": {
-        "London": (45000, 60000),
-        "Manchester": (45000, 55000),
-        "Birmingham": (40000, 50000),
-        "Remote": (40000, 65000)
-    },
-    "1st Line Support Engineer": {
-        "London": (25000, 32000),
-        "Manchester": (25000, 28000),
-        "Birmingham": (25000, 27000),
-        "Remote": (23000, 30000)
-    },
-    "2nd Line Support Engineer": {
-        "London": (30000, 40000),
-        "Manchester": (26000, 34000),
-        "Birmingham": (26000, 33000),
-        "Remote": (27000, 36000)
-    },
-    "3rd Line Support Engineer": {
-        "London": (40000, 55000),
-        "Manchester": (34000, 45000),
-        "Birmingham": (33000, 44000),
-        "Remote": (35000, 48000)
-    },
-    "Network Designer": {
-        "London": (60000, 95000),
-        "Manchester": (55000, 85000),
-        "Birmingham": (55000, 75000),
-        "Remote": (55000, 90000)
-    },
-    "Transmission Architect": {
-        "London": (60000, 100000),
-        "Manchester": (55000, 90000),
-        "Birmingham": (50000, 85000),
-        "Remote": (50000, 90000)
+    "SIP & Voice Engineer": {
+        "London": (42000, 68000),
+        "Manchester": (35000, 54000),
+        "Birmingham": (33000, 50000),
+        "Remote": (38000, 62000),
     },
     "IP Network Design Engineer": {
         "London": (60000, 85000),
         "Manchester": (55000, 80000),
         "Birmingham": (55000, 75000),
-        "Remote": (50000, 75000)
+        "Remote": (50000, 75000),
     },
+    "Transmission Architect": {
+        "London": (60000, 100000),
+        "Manchester": (55000, 90000),
+        "Birmingham": (50000, 85000),
+        "Remote": (50000, 90000),
+    },
+    
+    "--- Satellite ---": {},
+    "Satellite Architect": {
+        "London": (70000, 100000),
+        "Manchester": (58000, 82000),
+        "Birmingham": (55000, 78000),
+        "Remote": (62000, 95000),
+    },
+    "Satcom Engineer": {
+        "London": (48000, 78000),
+        "Manchester": (40000, 62000),
+        "Birmingham": (38000, 60000),
+        "Remote": (42000, 70000),
+    },
+    "Satellite Systems Engineer": {
+        "London": (45000, 70000),
+        "Manchester": (38000, 55000),
+        "Birmingham": (35000, 50000),
+        "Remote": (40000, 65000),
+    },
+    "Satellite Operations Engineer": {
+        "London": (42000, 70000),
+        "Manchester": (35000, 55000),
+        "Birmingham": (33000, 52000),
+        "Remote": (38000, 62000),
+    },
+    "Ground Systems Engineer": {
+        "London": (42000, 70000),
+        "Manchester": (35000, 55000),
+        "Birmingham": (33000, 52000),
+        "Remote": (38000, 62000),
+    },
+    "Satcom Integration Engineer": {
+        "London": (50000, 90000),
+        "Manchester": (42000, 70000),
+        "Birmingham": (40000, 65000),
+        "Remote": (45000, 80000),
+    },
+    "SATCOM Field Service Engineer": {
+        "London": (45000, 75000),
+        "Manchester": (38000, 60000),
+        "Birmingham": (35000, 55000),
+        "Remote": (40000, 70000),
+    },
+    "SATCOM Business Development Manager": {
+        "London": (60000, 95000),
+        "Manchester": (48000, 75000),
+        "Birmingham": (45000, 70000),
+        "Remote": (50000, 90000),
+    },
+    "SATCOM Pre-Sales Engineer": {
+        "London": (50000, 90000),
+        "Manchester": (42000, 70000),
+        "Birmingham": (40000, 65000),
+        "Remote": (45000, 80000),
+    },
+    
+    "--- Data Centres ---": {},
+    "Data Centre Technician": {
+        "London": (31000, 49000),
+        "Manchester": (26000, 40000),
+        "Birmingham": (25000, 38000),
+        "Remote": (28000, 45000),
+    },
+    "Data Centre Engineer": {
+        "London": (42000, 70000),
+        "Manchester": (35000, 56000),
+        "Birmingham": (33000, 52000),
+        "Remote": (38000, 65000),
+    },
+    "Network Engineer (Data Centre)": {
+        "London": (50000, 78000),
+        "Manchester": (42000, 62000),
+        "Birmingham": (40000, 60000),
+        "Remote": (45000, 75000),
+    },
+    "Data Centre Operations Manager": {
+        "London": (60000, 95000),
+        "Manchester": (48000, 75000),
+        "Birmingham": (45000, 70000),
+        "Remote": (50000, 85000),
+    },
+    "Infrastructure Engineer (Data Centre)": {
+        "London": (40000, 90000),
+        "Manchester": (34000, 70000),
+        "Birmingham": (32000, 65000),
+        "Remote": (38000, 80000),
+    },
+    "Facilities Engineer (Data Centre)": {
+        "London": (45000, 65000),
+        "Manchester": (40000, 55000),
+        "Birmingham": (40000, 55000),
+        "Remote": (30000, 60000),
+    },
+    "Data Centre Security Analyst": {
+        "London": (45000, 75000),
+        "Manchester": (38000, 60000),
+        "Birmingham": (35000, 55000),
+        "Remote": (40000, 70000),
+    },
+    "DevOps Engineer (Data Centre Operations)": {
+        "London": (50000, 85000),
+        "Manchester": (42000, 65000),
+        "Birmingham": (40000, 60000),
+        "Remote": (45000, 80000),
+    },
+    
+    "--- Broadcasting ---": {},
+    "Broadcast Systems Engineer": {
+        "London": (40000, 75000),
+        "Manchester": (32000, 56000),
+        "Birmingham": (30000, 52000),
+        "Remote": (35000, 65000),
+    },
+    "Network Broadcast Engineer": {
+        "London": (42000, 78000),
+        "Manchester": (34000, 60000),
+        "Birmingham": (32000, 58000),
+        "Remote": (38000, 68000),
+    },
+    "Cloud Broadcast Engineer": {
+        "London": (45000, 80000),
+        "Manchester": (38000, 60000),
+        "Birmingham": (35000, 58000),
+        "Remote": (40000, 72000),
+    },
+    "Streaming Media Engineer": {
+        "London": (45000, 80000),
+        "Manchester": (38000, 60000),
+        "Birmingham": (35000, 58000),
+        "Remote": (40000, 72000),
+    },
+    "CDN (Content Delivery Network) Engineer": {
+        "London": (45000, 80000),
+        "Manchester": (38000, 60000),
+        "Birmingham": (35000, 58000),
+        "Remote": (40000, 72000),
+    },
+    "Video over IP Specialist": {
+        "London": (44000, 78000),
+        "Manchester": (36000, 58000),
+        "Birmingham": (34000, 55000),
+        "Remote": (38000, 70000),
+    },
+    "Systems Integration Specialist": {
+        "London": (40000, 70000),
+        "Manchester": (34000, 55000),
+        "Birmingham": (30000, 50000),
+        "Remote": (36000, 65000),
+    },
+    "Digital Content Delivery Specialist": {
+        "London": (40000, 70000),
+        "Manchester": (34000, 55000),
+        "Birmingham": (30000, 50000),
+        "Remote": (36000, 65000),
+    },
+    "Distribution Engineer": {
+        "London": (45000, 65000),
+        "Manchester": (40000, 58000),
+        "Birmingham": (40000, 55000),
+        "Remote": (38000, 70000),
+    },
+    "Event Engineer": {
+        "London": (45000, 60000),
+        "Manchester": (45000, 55000),
+        "Birmingham": (40000, 50000),
+        "Remote": (40000, 65000),
+    },
+    
+    "--- Support (Telecoms) ---": {},
+    "1st Line Support Engineer": {
+        "London": (25000, 32000),
+        "Manchester": (25000, 28000),
+        "Birmingham": (25000, 27000),
+        "Remote": (23000, 30000),
+    },
+    "2nd Line Support Engineer": {
+        "London": (30000, 40000),
+        "Manchester": (26000, 34000),
+        "Birmingham": (26000, 33000),
+        "Remote": (27000, 36000),
+    },
+    "3rd Line Support Engineer": {
+        "London": (40000, 55000),
+        "Manchester": (34000, 45000),
+        "Birmingham": (33000, 44000),
+        "Remote": (35000, 48000),
+    },
+    
+    "--- Design ---": {},
+    "Network Designer": {
+        "London": (60000, 95000),
+        "Manchester": (55000, 85000),
+        "Birmingham": (55000, 75000),
+        "Remote": (55000, 90000),
+    },
+    
+    "--- Pre-Sales (IT Telecoms) ---": {},
     "Sales Engineer": {
         "London": (45000, 90000),
         "Manchester": (36000, 72000),
         "Birmingham": (34000, 65000),
-        "Remote": (40000, 80000)
+        "Remote": (40000, 80000),
     },
+    
+    "--- Cybersecurity ---": {},
     "Cyber Security Engineer": {
         "London": (65000, 90000),
         "Manchester": (55000, 75000),
         "Birmingham": (50000, 70000),
-        "Remote": (60000, 85000)
+        "Remote": (60000, 85000),
     },
     "Application Security Engineer": {
         "London": (70000, 100000),
         "Manchester": (60000, 80000),
         "Birmingham": (55000, 75000),
-        "Remote": (65000, 90000)
+        "Remote": (65000, 90000),
     },
     "Cloud Security Engineer": {
         "London": (55000, 75000),
         "Manchester": (50000, 65000),
         "Birmingham": (48000, 65000),
-        "Remote": (55000, 80000)
+        "Remote": (55000, 80000),
     },
     "Cyber Security Analyst": {
         "London": (50000, 65000),
         "Manchester": (40000, 55000),
         "Birmingham": (38000, 55000),
-        "Remote": (45000, 65000)
+        "Remote": (45000, 65000),
     },
     "Digital Forensics": {
         "London": (55000, 80000),
         "Manchester": (45000, 65000),
         "Birmingham": (42000, 60000),
-        "Remote": (50000, 70000)
+        "Remote": (50000, 70000),
     },
     "GRC Analyst (Governance, Risk & Compliance)": {
         "London": (60000, 80000),
         "Manchester": (50000, 65000),
         "Birmingham": (45000, 60000),
-        "Remote": (55000, 75000)
+        "Remote": (55000, 75000),
     },
     "Incident Response Specialist": {
         "London": (65000, 85000),
         "Manchester": (55000, 70000),
         "Birmingham": (50000, 65000),
-        "Remote": (60000, 80000)
+        "Remote": (60000, 80000),
     },
     "Information Security": {
         "London": (60000, 80000),
         "Manchester": (50000, 65000),
         "Birmingham": (48000, 62000),
-        "Remote": (55000, 75000)
+        "Remote": (55000, 75000),
     },
     "OT Security": {
         "London": (60000, 85000),
         "Manchester": (50000, 65000),
         "Birmingham": (48000, 65000),
-        "Remote": (60000, 85000)
+        "Remote": (60000, 85000),
     },
     "Red Team Engineer": {
         "London": (70000, 100000),
         "Manchester": (60000, 80000),
         "Birmingham": (55000, 75000),
-        "Remote": (65000, 90000)
+        "Remote": (65000, 90000),
     },
     "SOC Analyst (Security Operations Centre)": {
         "London": (45000, 65000),
         "Manchester": (35000, 50000),
         "Birmingham": (33000, 50000),
-        "Remote": (40000, 60000)
+        "Remote": (40000, 60000),
     },
     "Threat Intelligence Analyst": {
         "London": (60000, 80000),
         "Manchester": (50000, 65000),
         "Birmingham": (48000, 65000),
-        "Remote": (55000, 75000)
-    }
+        "Remote": (55000, 75000),
+    },
 }
 
-# dropdown options + dividers
-role_options = [
-    "---Network Engineer ---",
-    "Network Engineer",
-    "Network Administrator",
-    "Network Analyst",
-    "Network Architect",
-    "Network Security Engineer",
-    "Network Support Engineer",
-    "Wireless Network Engineer",
-    "Network Manager",
-    "Network Operations Center Engineer",
-
-    "--- Radio Frequency ---",
-    "RF Engineer",
-    "RF Design Engineer",
-    "RF Test Engineer",
-    "RAN Engineer",
-    "Satellite Architect",
-    "DMR / PMR Engineer",
-    "Military Leaver (Signals / EWSI)",
-    
-    "--- IP and Transmission ---",
-    "Senior IP Network Engineer",
-    "Field Network Engineer",
-    "IP Operations / NetOps Engineer",
-    "SIP & Voice Engineer",
-    "Graduate Network Engineer",
-    "IP Engineer / Test / Dev Engineer",
-    "Backbone / Core Engineer",
-    "GPON Engineer",
-    "Transmission / Ethernet / DWDM Engineer",
-    
-    "--- Satellite ---",
-    "Satcom Engineer",
-    "Satellite Systems Engineer",
-    "Satellite Operations Engineer",
-    "Ground Systems Engineer",
-    "Satcom Integration Engineer",
-    "SATCOM Field Service Engineer",
-    "SATCOM Business Development Manager",
-    "SATCOM Pre-Sales Engineer",
-
-    "--- Data Centres ---",
-    "Data Centre Technician",
-    "Data Centre Engineer",
-    "Network Engineer (Data Centre)",
-    "Data Centre Operations Manager",
-    "Infrastructure Engineer (Data Centre)",
-    "Facilities Engineer (Data Centre)",
-    "Data Centre Security Analyst",
-    "DevOps Engineer (Data Centre Operations)",
-
-    "--- Broadcasting ---",
-    "Broadcast Systems Engineer",
-    "Network Broadcast Engineer",
-    "Cloud Broadcast Engineer",
-    "Streaming Media Engineer",
-    "CDN (Content Delivery Network) Engineer",
-    "Video over IP Specialist",
-    "Systems Integration Specialist",
-    "Digital Content Delivery Specialist",
-    "Distribution Engineer",
-    "Event Engineer",
-
-    "--- Support (Telecoms) ---",
-    "1st Line Support Engineer",
-    "2nd Line Support Engineer",
-    "3rd Line Support Engineer",
-
-    "--- Design ---",
-    "Network Designer",
-    "Transmission Architect",
-    "IP Network Design Engineer",
-
-    "--- Pre-Sales (IT Telecoms) ---",
-    "Sales Engineer",
-
-    "--- Cybersecurity ---",
-    "Cyber Security Engineer",
-    "Application Security Engineer",
-    "Cloud Security Engineer",
-    "Cyber Security Analyst",
-    "Digital Forensics",
-    "GRC Analyst (Governance, Risk & Compliance)",
-    "Incident Response Specialist",
-    "Information Security",
-    "OT Security",
-    "Red Team Engineer",
-    "SOC Analyst (Security Operations Centre)",
-    "Threat Intelligence Analyst"
-]
 
 # seniority percentiles: the percentile inside the range to show as an estimated salary
 seniority_percentiles = {
