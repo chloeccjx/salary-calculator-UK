@@ -40,8 +40,6 @@ st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
 salary_data = {
-    "--- Network Engineer ---"}
-    
     "Network Engineer": {
         "London": (55000, 70000),
         "Manchester": (40000, 55000),
@@ -472,7 +470,7 @@ salary_data = {
 
 # dropdown options + dividers
 role_options = [
-    "--- Network Engineer ---",
+    "---Network Engineer ---",
     "Network Engineer",
     "Network Administrator",
     "Network Analyst",
@@ -562,6 +560,23 @@ role_options = [
     "SOC Analyst (Security Operations Centre)",
     "Threat Intelligence Analyst"
 ]
+
+# Generate dropdown list with dividers
+role_options = []
+for category, roles in categories.items():
+    role_options.append(f"--- {category} ---")
+    role_options.extend(roles)
+
+# Streamlit dropdown
+selected_role = st.selectbox("Choose a role", role_options)
+
+# Show salary if a real role is selected
+if selected_role.startswith("---"):
+    st.write("Please select a valid role")
+else:
+    st.write("Salary ranges by location:")
+    for location, (min_salary, max_salary) in salary_data[selected_role].items():
+        st.write(f"{location}: £{min_salary:,} – £{max_salary:,}")
 
 # seniority percentiles: the percentile inside the range to show as an estimated salary
 seniority_percentiles = {
