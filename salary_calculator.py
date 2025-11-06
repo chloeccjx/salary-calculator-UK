@@ -561,12 +561,6 @@ role_options = [
     "Threat Intelligence Analyst"
 ]
 
-# Generate dropdown list with dividers
-role_options = []
-for category, roles in categories.items():
-    role_options.append(f"--- {category} ---")
-    role_options.extend(roles)
-
 # Streamlit dropdown
 selected_role = st.selectbox("Choose a role", role_options)
 
