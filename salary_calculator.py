@@ -561,17 +561,6 @@ role_options = [
     "Threat Intelligence Analyst"
 ]
 
-# Streamlit dropdown
-selected_role = st.selectbox("Choose a role", role_options)
-
-# Show salary if a real role is selected
-if selected_role.startswith("---"):
-    st.write("Please select a valid role")
-else:
-    st.write("Salary ranges by location:")
-    for location, (min_salary, max_salary) in salary_data[selected_role].items():
-        st.write(f"{location}: £{min_salary:,} – £{max_salary:,}")
-
 # seniority percentiles: the percentile inside the range to show as an estimated salary
 seniority_percentiles = {
     "Junior": 0.25,
