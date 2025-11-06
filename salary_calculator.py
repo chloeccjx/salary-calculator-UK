@@ -451,6 +451,19 @@ salary_data = {
     },
 }
 
+roles = list(salary_data.keys())
+selection = st.selectbox("Role", roles)
+
+# If user picks a divider/header
+if selection.startswith("─") or selection.startswith("---"):
+    st.warning("Oops! This is not a role. Please select a valid role.")
+else:
+    # Continue with normal salary lookup
+    location = st.selectbox("Choose a location:", list(salary_data[selection].keys()))
+    min_salary, max_salary = salary_data[selection][location]
+    st.success(f"{selection} salary in {location}: £{min_salary:,} - £{max_salary:,}")
+
+
 # seniority percentiles: the percentile inside the range to show as an estimated salary
 seniority_percentiles = {
     "Junior": 0.25,
