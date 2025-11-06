@@ -40,6 +40,7 @@ st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
 salary_data = {
+    "--- Network Engineer ---"
     "Network Engineer": {
         "London": (55000, 70000),
         "Manchester": (40000, 55000),
