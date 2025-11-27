@@ -487,13 +487,12 @@ def fmt(n):
 
 st.write("---")
 
-st.write("---")   # this is fine
-
 if show:
 
-    # divider guard MUST be here
+    # divider guard
     if role.startswith("---"):
         st.error("Invalid selection. Please select a title and not a divider")
+        st.stop()
     
     else:
         min_sal, max_sal = salary_data[role][location]
