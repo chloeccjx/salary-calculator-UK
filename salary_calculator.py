@@ -487,23 +487,29 @@ def fmt(n):
 
 st.write("---")
 
-if show:
-    min_sal, max_sal = salary_data[role][location]
-    suggested = int(min_sal + (max_sal - min_sal) * seniority_percentiles[level])
+st.write("---")   # this is fine
 
-    st.subheader(f"{level} {role} Salary in {location}")
+if show:
+
+    # divider guard MUST be here
+    if role.startswith("---"):
+        st.error("Invalid selection. Please select a title and not a divider")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown(f"**Estimated salary range:** {fmt(min_sal)} – {fmt(max_sal)}")
-    with col2:
-        st.markdown(f"**Estimated salary for this experience level:** {fmt(suggested)}")
-    
-    st.info(
-        "This is an estimate based on market ranges. Actual offers vary by skills, certifications and company."
-    )
     else:
-        st.error("Invalid selection. Please  select a title and not a divider")
+        min_sal, max_sal = salary_data[role][location]
+        suggested = int(min_sal + (max_sal - min_sal) * seniority_percentiles[level])
+
+        st.subheader(f"{level} {role} Salary in {location}")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f"**Estimated salary range:** {fmt(min_sal)} – {fmt(max_sal)}")
+        with col2:
+            st.markdown(f"**Estimated salary for this experience level:** {fmt(suggested)}")
+        
+        st.info(
+            "This is an estimate based on market ranges. Actual offers vary by skills, certifications and company."
+        )
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
