@@ -40,7 +40,7 @@ st.image("hb_logo.png", width=250)
 
 # --- Salary data (role -> location -> (min, max)) ---
 salary_data = {
-    "──── Network Engineer ────": {},
+    "【Network Engineer】": {},
     "Network Engineer": {
         "London": (55000, 70000),
         "Manchester": (40000, 55000),
@@ -78,7 +78,7 @@ salary_data = {
         "Remote": (28000, 40000),
     },
     
-    "──── Radio Frequency ────": {},
+    "【Radio Frequency】": {},
     "Wireless Network Engineer": {
         "London": (45000, 65000),
         "Manchester": (35000, 50000),
@@ -122,7 +122,7 @@ salary_data = {
         "Remote": (30000, 40000),
     },
     
-    "──── IP and Transmission ────": {},
+    "【IP and Transmission】": {},
     "Senior IP Network Engineer": {
         "London": (65000, 85000),
         "Manchester": (55000, 80000),
@@ -172,7 +172,7 @@ salary_data = {
         "Remote": (50000, 90000),
     },
     
-    "──── Satellite ────": {},
+    "【Satellite】": {},
     "Satellite Architect": {
         "London": (70000, 100000),
         "Manchester": (58000, 82000),
@@ -228,7 +228,7 @@ salary_data = {
         "Remote": (45000, 80000),
     },
     
-    "──── Data Centres ────": {},
+    "【Data Centres】": {},
     "Data Centre Technician": {
         "London": (31000, 49000),
         "Manchester": (26000, 40000),
@@ -278,7 +278,7 @@ salary_data = {
         "Remote": (45000, 80000),
     },
     
-    "──── Broadcasting ────": {},
+    "【Broadcasting】": {},
     "Broadcast Systems Engineer": {
         "London": (40000, 75000),
         "Manchester": (32000, 56000),
@@ -340,7 +340,7 @@ salary_data = {
         "Remote": (40000, 65000),
     },
     
-    "──── Support (Telecoms) ────": {},
+    "【Support (Telecoms)】": {},
     "1st Line Support Engineer": {
         "London": (25000, 32000),
         "Manchester": (25000, 28000),
@@ -360,7 +360,7 @@ salary_data = {
         "Remote": (35000, 48000),
     },
     
-    "──── Design ────": {},
+    "【Design】": {},
     "Network Designer": {
         "London": (60000, 95000),
         "Manchester": (55000, 85000),
@@ -368,7 +368,7 @@ salary_data = {
         "Remote": (55000, 90000),
     },
     
-    "──── Pre-Sales (IT Telecoms) ────": {},
+    "【Pre-Sales (IT Telecoms)】": {},
     "Sales Engineer": {
         "London": (45000, 90000),
         "Manchester": (36000, 72000),
@@ -376,7 +376,7 @@ salary_data = {
         "Remote": (40000, 80000),
     },
     
-    "──── Cybersecurity ────": {},
+    "【Cybersecurity】": {},
     "Cyber Security Engineer": {
         "London": (65000, 90000),
         "Manchester": (55000, 75000),
@@ -499,7 +499,11 @@ if show:
     with col2:
         st.markdown(f"**Estimated salary for this experience level:** {fmt(suggested)}")
     
-    st.info("This is an estimate based on market ranges. Actual offers vary by skills, certifications and company.")
+    st.info(
+        "This is an estimate based on market ranges. Actual offers vary by skills, certifications and company."
+    )
+    else:
+        st.error("Invalid selection. Please  select a title and not a divider")
 
 st.caption("Data source: internal market ranges. Use for guidance only.")
 
