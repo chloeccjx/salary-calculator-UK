@@ -1,6 +1,7 @@
 # salary_calculator.py
 import streamlit as st
-import base64import streamlit.components.v1 as components
+import base64
+import streamlit.components.v1 as components
 import os
 st.set_page_config(page_title="Network Engineer Salary Calculator", layout="centered")
 
