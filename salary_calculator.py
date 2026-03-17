@@ -822,3 +822,5 @@ def render_interactive_tools_hub(current_tool: str) -> None:
     </html>
     """
     components.html(full_html, height=1100, scrolling=False)
+
+render_interactive_tools_hub(current_tool="UK Salary Calculator")
